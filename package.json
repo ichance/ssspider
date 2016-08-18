@@ -1,6 +1,6 @@
 {
   "name": "ssspider",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "shadowsocks && VPN spider",
   "main": "index.js",
   "scripts": {
