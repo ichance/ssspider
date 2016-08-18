@@ -24,7 +24,7 @@ if (args[0] == "all") {
  * @return {[type]} [description]
  */
 function help() {
-    console.log("使用方法：\n\t当个文件：./flush.js filename\n\t指定目录：./flush.js -r dirname");
+    console.log("使用方法：\n\t当个文件：ssspider ss\n\tssspider vpn");
 }
 
 function getSite(msg, callback) {
