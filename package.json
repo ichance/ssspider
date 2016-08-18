@@ -1,7 +1,7 @@
 {
   "name": "ssspider",
-  "version": "1.0.0",
-  "description": "shadowsocks",
+  "version": "1.0.1",
+  "description": "shadowsocks && VPN spider",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +18,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jShi-git/ssspider/issues"
+  },
+  "bin": {
+    "ssspider": "bin/ssspider"
   },
   "homepage": "https://github.com/jShi-git/ssspider#readme",
   "dependencies": {
