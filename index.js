@@ -117,7 +117,7 @@ function echoServer(site) {
             var domain = $(".domain").text();
             var userInfo = $('.domain_box table tr').eq(2).find("td").eq(1).text();
             if(domain != "本站免费试用") {
-            	console.log("server:" + domain + ",   user:" + userInfo);
+            	console.log("\t"+domain + "\t\t" + userInfo);
             }
         });
 
