@@ -1,0 +1,27 @@
+{
+  "name": "ssspider",
+  "version": "1.0.0",
+  "description": "shadowsocks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jShi-git/ssspider.git"
+  },
+  "keywords": [
+    "shadowsocks",
+    "spider"
+  ],
+  "author": "stuart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jShi-git/ssspider/issues"
+  },
+  "homepage": "https://github.com/jShi-git/ssspider#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "request": "^2.74.0"
+  }
+}
