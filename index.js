@@ -6,13 +6,34 @@ var cheerio = require('cheerio');
 var request = require('request');
 var i = 0;
 var url = "http://lanterncn.org/free/";
+var args = process.argv.splice(2);
+
+if (args[0] == "all") {
+    console.log("功能暂未开发~");
+} else if (args[0] == "-h") {
+    help();
+    return false;
+} else if (args[0] == "vpn") {
+    getVPN(url);
+} else {
+    getSS(url);
+}
 
 /**
- * [startRequest description]
+ * 帮助提示
+ * @return {[type]} [description]
+ */
+function help() {
+    console.log("使用方法：\n\t当个文件：./flush.js filename\n\t指定目录：./flush.js -r dirname");
+}
+
+/**
+ * 获取Shadowsocks列表
  * @param  {[type]} x [description]
  * @return {[type]}   [description]
  */
-function startRequest(x) {
+function getSS(x) {
+	console.log("\n下面是最新的免费 shadowsocks 服务器列表：\n");
     //采用http模块向服务器发起一次get请求      
     http.get(x, function(res) {
         var html = '';
@@ -27,6 +48,41 @@ function startRequest(x) {
             var $ = cheerio.load(html);
 
             $('.mibiao .boxbody').eq(0).find("a").each(function(index, item) {
+		        var x = $(this).attr("href");
+
+		        if(typeof x != "undefined") {
+		        	echoServer(url + x);
+		        }
+		    });
+
+        });
+
+    }).on('error', function(err) {
+        console.log(err);
+    });
+}
+
+/**
+ * 获取VPN列表
+ * @param  {[type]} x [description]
+ * @return {[type]}   [description]
+ */
+function getVPN(x) {
+	console.log("\n下面是最新的免费 VPN 服务器列表：\n");
+    //采用http模块向服务器发起一次get请求      
+    http.get(x, function(res) {
+        var html = '';
+        res.setEncoding('utf-8'); //防止中文乱码
+
+        //监听data事件，每次取一块数据
+        res.on('data', function(chunk) {
+            html += chunk;
+        });
+
+        res.on('end', function() {
+            var $ = cheerio.load(html);
+
+            $('.mibiao .boxbody').eq(1).find("a").each(function(index, item) {
 		        var x = $(this).attr("href");
 
 		        if(typeof x != "undefined") {
@@ -69,5 +125,3 @@ function echoServer(site) {
         console.log(err);
     });
 }
-
-startRequest(url); //主程序开始运行
