@@ -24,7 +24,7 @@ if (args[0] == "all") {
  * @return {[type]} [description]
  */
 function help() {
-    console.log("使用方法：\n\t当个文件：ssspider ss\n\tssspider vpn");
+    console.log("使用方法：\n\tshadowsocks：ssspider ss\n\t        vpn:ssspider vpn");
 }
 
 function getSite(msg, callback) {
