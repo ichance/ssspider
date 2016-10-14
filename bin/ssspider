@@ -27,10 +27,10 @@ function help() {
     console.log("使用方法：\n\tshadowsocks：ssspider ss\n\t        vpn:ssspider vpn");
 }
 
-function getSite(msg, callback) {
+function getSite(msg, url, callback) {
 	console.log("\n"+msg+"：\n");
     //采用http模块向服务器发起一次get请求      
-    http.get(x, function(res) {
+    http.get(url, function(res) {
         var html = '';
         res.setEncoding('utf-8'); //防止中文乱码
 
@@ -55,8 +55,8 @@ function getSite(msg, callback) {
  * @param  {[type]} x [description]
  * @return {[type]}   [description]
  */
-function getSS(x) {
-	getSite("下面是最新的免费 shadowsocks 服务器列表", function($) {
+function getSS(site) {
+	getSite("下面是最新的免费 shadowsocks 服务器列表", site, function($) {
 		$('.mibiao .boxbody').eq(0).find("a").each(function(index, item) {
 	        var x = $(this).attr("href");
 
@@ -72,8 +72,8 @@ function getSS(x) {
  * @param  {[type]} x [description]
  * @return {[type]}   [description]
  */
-function getVPN(x) {
-	getSite("下面是最新的免费 VPN 服务器列表", function($) {
+function getVPN(site) {
+	getSite("下面是最新的免费 VPN 服务器列表",site, function($) {
 		$('.mibiao .boxbody').eq(1).find("a").each(function(index, item) {
 	        var x = $(this).attr("href");
 
